@@ -15,11 +15,6 @@ jobs:
           aws-access-key-id: "AKIAQJZNGEWM4TU3BQER"
           aws-secret-access-key: "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"
           aws-region: us-east-1
-      - name: Set up / Open Tunnel
-        run: |
-          sudo apt install -y putty
-          aws s3 cp s3://merchantkey/XX_AP_UPL_MERCHANT_DOCS_NPRD_.key XX_AP_UPL_MERCHANT_DOCS_NPRD_.key
-
       - uses: liquibase/liquibase-github-action@v2
         with:
           operation: 'update'
