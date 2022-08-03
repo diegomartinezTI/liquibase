@@ -9,8 +9,7 @@ jobs:
       - uses: liquibase/liquibase-github-action@v2
         with:
           operation: 'update'
-          path: "mysql-connector-java-8.0.17.jar"
-          classpath: 'example/samplechangelog.sql'
+          classpath: "mysql-connector-java-8.0.17.jar" 
           changeLogFile: 'example/samplechangelog.sql'
           username: "u632645567_pruebas"
           password: "Diego123*-*"
