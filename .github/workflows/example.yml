@@ -9,7 +9,7 @@ jobs:
       - uses: liquibase/liquibase-github-action@v2
         with:
           operation: 'update'
-          classpath: 'mariadb-java-client.jar'
+          classpath: 'example/mariadb-java-client.jar'
           changeLogFile: 'samplechangelog.sql'
           username: "u632645567_pruebas"
           password: "Diego123*-*"
