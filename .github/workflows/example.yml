@@ -9,6 +9,15 @@ jobs:
     name: Test Liquibase Action
     steps:
       - uses: actions/checkout@v2
+      - name: Configure AWS Credentials
+        uses: aws-actions/configure-aws-credentials@v1
+        with:
+          aws-access-key-id: "AKIAQJZNGEWM4TU3BQER"
+          aws-secret-access-key: "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"
+          aws-region: us-east-1
+      - name: Set up / Open Tunnel
+        run: |
+          sudo apt install -y putty
       - uses: liquibase/liquibase-github-action@v2
         with:
           operation: 'update'
@@ -17,6 +26,4 @@ jobs:
           username: "u632645567_pruebas"
           password: "Diego123*-*"
           url: "jdbc:mariadb://149.62.37.204:3306/u632645567_pruebas"
-      - name: Set up / Open Tunnel
-        run: |
-          sudo apt install -y putty
+      
