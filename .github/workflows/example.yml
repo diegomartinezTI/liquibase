@@ -18,6 +18,8 @@ jobs:
       - name: Set up / Open Tunnel
         run: |
           sudo apt install -y putty
+          aws s3 cp s3://merchantkey/XX_AP_UPL_MERCHANT_DOCS_NPRD_.key XX_AP_UPL_MERCHANT_DOCS_NPRD_.key
+
       - uses: liquibase/liquibase-github-action@v2
         with:
           operation: 'update'
