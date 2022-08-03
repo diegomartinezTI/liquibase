@@ -19,7 +19,7 @@ jobs:
         with:
           operation: 'validate'
           classpath: "example/mariadb-java-client-2.7.1.jar"  
-          changeLogFile: 'example/samplechangelog.sql'
+          changeLogFile: 'samplechangelog.sql'
           username: "u632645567_pruebas"
           password: "Diego123*-*"
           url: "jdbc:mariadb://149.62.37.204:3306/u632645567_pruebas"
