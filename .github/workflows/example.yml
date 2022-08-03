@@ -9,8 +9,8 @@ jobs:
       - uses: liquibase/liquibase-github-action@v2
         with:
           operation: 'update'
-          classpath: "example/mysql-connector-java-8.0.17.jar"  
+          classpath: "example/mariadb-java-client-2.7.1.jar"  
           changeLogFile: 'example/samplechangelog.sql'
           username: "u632645567_pruebas"
           password: "Diego123*-*"
-          url: "jdbc:mysql://149.62.37.204:3306/u632645567_pruebas"
+          url: "jdbc:mariadb://149.62.37.204:3306/u632645567_pruebas"
