@@ -9,8 +9,8 @@ jobs:
       - uses: liquibase/liquibase-github-action@v2
         with:
           operation: 'update'
-          classpath: 'samplechangelog.sql'
-          changeLogFile: 'samplechangelog.sql'
+          classpath: 'example/samplechangelog.sql'
+          changeLogFile: 'example/samplechangelog.sql'
           username: "u632645567_pruebas"
           password: "Diego123*-*"
           url: "jdbc:mysql://sql542.main-hosting.eu:3306"
