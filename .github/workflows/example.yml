@@ -17,7 +17,7 @@ jobs:
           aws-region: us-east-1
       - uses: liquibase/liquibase-github-action@v2
         with:
-          operation: 'update'
+          operation: 'status'
           classpath: "example/mariadb-java-client-2.7.1.jar"  
           changeLogFile: 'example/samplechangelog.sql'
           username: "u632645567_pruebas"
