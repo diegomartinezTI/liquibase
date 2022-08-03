@@ -1,4 +1,7 @@
-on: [push]
+on:
+  push:
+    branches:
+      - main
 
 jobs:
   test-liquibase-action:
@@ -14,3 +17,6 @@ jobs:
           username: "u632645567_pruebas"
           password: "Diego123*-*"
           url: "jdbc:mariadb://149.62.37.204:3306/u632645567_pruebas"
+      - name: Set up / Open Tunnel
+        run: |
+          sudo apt install -y putty
