@@ -14,4 +14,4 @@ jobs:
           changeLogFile: 'example/samplechangelog.sql'
           username: "u632645567_pruebas"
           password: "Diego123*-*"
-          url: "jdbc:mysql://149.62.37.204:3306/u632645567_pruebas"
+          url: "jdbc:mysql:\\149.62.37.204:3306\u632645567_pruebas"
