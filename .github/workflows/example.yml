@@ -11,6 +11,6 @@ jobs:
           operation: 'update'
           classpath: 'example'
           changeLogFile: 'samplechangelog.sql'
-          username: "postgres"
-          password: "admin"
-          url: "dev-merchant-platform-data-dbinstance.cpdprsgplcjh.us-east-1.rds.amazonaws.com"
+          username: "u632645567_pruebas"
+          password: "Diego123*-*"
+          url: "sql542.main-hosting.eu"
