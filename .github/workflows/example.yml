@@ -11,6 +11,6 @@ jobs:
           operation: 'update'
           classpath: 'example'
           changeLogFile: 'samplechangelog.sql'
-          username: ${{ secrets.USERNAME }}
-          password: ${{ secrets.PASSWORD }}
+          username: "postgres"
+          password: "admin"
           url: ${{ secrets.URL }}
