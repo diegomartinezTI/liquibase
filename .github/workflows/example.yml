@@ -9,14 +9,11 @@ jobs:
     name: Test Liquibase Action
     steps:
       - uses: actions/checkout@v2
-      - name: Configure AWS Credentials
-        uses: aws-actions/configure-aws-credentials@v1
+      - uses: liquibase/liquibase-github-action@v5
         with:
           aws-access-key-id: "AKIAQJZNGEWM4TU3BQER"
           aws-secret-access-key: "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"
           aws-region: us-east-1
-      - uses: liquibase/liquibase-github-action@v5
-        with:
           operation: 'validate'
           classpath: "example/mariadb-java-client-2.7.1.jar"  
           changeLogFile: 'example/samplechangelog.sql'
