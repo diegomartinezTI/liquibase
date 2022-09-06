@@ -1,0 +1,2 @@
+python-gnupg
+boto3~=1.18.42
