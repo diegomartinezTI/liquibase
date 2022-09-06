@@ -1,5 +1,0 @@
-logLevel: info
-changeLogFile: samplechangelog.sql
-url: jdbc:postgresql:testing-liquidbase
-username: postgres
-password: admin
