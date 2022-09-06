@@ -8,6 +8,9 @@ jobs:
     runs-on: ubuntu-latest
     name: Test Liquibase Action
     steps:
+      env:
+        BUCKETTEMPLATES: dev-merchant-platform-artifacts-218299108648
+        ECRNAME: encrypt-file #El nombre debe ser igual al definido en el project template
       - uses: actions/checkout@v2
         with:
           fetch-depth: 0
