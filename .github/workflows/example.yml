@@ -9,15 +9,21 @@ jobs:
     name: Test Liquibase Action
     steps:
       - uses: actions/checkout@v2
-      - uses: liquibase/liquibase-github-action@v5
         with:
-          aws-access-key-id: "AKIAQJZNGEWM4TU3BQER"
-          aws-secret-access-key: "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"
+          fetch-depth: 0
+      - name: Configure AWS Credentials
+        uses: aws-actions/configure-aws-credentials@v1
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-region: us-east-1
-          operation: 'validate'
-          classpath: "example/mariadb-java-client-2.7.1.jar"  
-          changeLogFile: 'example/samplechangelog.sql'
-          username: "u632645567_pruebas"
-          password: "Diego123*-*"
-          url: "jdbc:mariadb://149.62.37.204:3306/u632645567_pruebas"
-      
+      - name: Test
+        run: |
+          aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin 218299108648.dkr.ecr.us-east-1.amazonaws.com
+          cd ./src/lambdas_container/encrypt_files/
+          docker build -t $ECRNAME .
+          aws ecr create-repository --repository-name $ECRNAME --image-scanning-configuration scanOnPush=true --image-tag-mutability MUTABLE || echo "it is possible that the ecr is already created"
+          docker tag  $ECRNAME:latest 218299108648.dkr.ecr.us-east-1.amazonaws.com/$ECRNAME:latest
+          docker push 218299108648.dkr.ecr.us-east-1.amazonaws.com/$ECRNAME:latest
+          cd ../../../
+
