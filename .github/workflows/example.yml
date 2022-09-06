@@ -23,7 +23,6 @@ jobs:
       - name: Test
         run: |
           aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin 218299108648.dkr.ecr.us-east-1.amazonaws.com
-          cd ./src/lambdas_container/encrypt_files/
           docker build -t $ECRNAME .
           aws ecr create-repository --repository-name $ECRNAME --image-scanning-configuration scanOnPush=true --image-tag-mutability MUTABLE || echo "it is possible that the ecr is already created"
           docker tag  $ECRNAME:latest 218299108648.dkr.ecr.us-east-1.amazonaws.com/$ECRNAME:latest
