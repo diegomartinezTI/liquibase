@@ -9,7 +9,7 @@ session = boto3.Session( aws_access_key_id='AKIAQJZNGEWMR2XSRKWS', aws_secret_ac
 s3 = session.resource('s3')
 
 def handler(event, context):
-    
+    print("algo")
     my_bucket = s3.Bucket('merchantkey')
 
     items = []
