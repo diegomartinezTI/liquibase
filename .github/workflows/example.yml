@@ -10,7 +10,7 @@ jobs:
     env:
         BUCKETTEMPLATES: dev-merchant-platform-artifacts-218299108648
         ECRNAME: encrypt-file #El nombre debe ser igual al definido en el project template
-        FOO : ${{ github.run_id }}-${{ github.run_attempt }}
+        FOO : "NOW::$(date +'%Y-%m-%dT%H:%M:%S')"
     steps:
       - name: Test
         run: |
