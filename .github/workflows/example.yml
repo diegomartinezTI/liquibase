@@ -10,6 +10,7 @@ jobs:
     env:
         BUCKETTEMPLATES: dev-merchant-platform-artifacts-218299108648
         ECRNAME: encrypt-file #El nombre debe ser igual al definido en el project template
+        FOO : foobar-${{ github.run_id }}-${{ github.run_attempt }}
     steps:
       - uses: actions/checkout@v2
         with:
@@ -22,6 +23,7 @@ jobs:
           aws-region: us-east-1
       - name: Test
         run: |
+          echo ${FOO}
           aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin 021032740249.dkr.ecr.us-east-1.amazonaws.com
           cd ./example
           docker build -t $ECRNAME .
