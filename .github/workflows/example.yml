@@ -18,7 +18,7 @@ jobs:
         uses: nanzm/get-time-action@v1.1
         with:
           timeZone: 8
-          format: 'YYYY-MM-DD-HH-mm-ss'
+          format: 'YYYYMMDDHHmmss'
       - name: Usage
         run: |
           echo ${{ steps.time.outputs.time }}
