@@ -10,7 +10,7 @@ jobs:
     env:
         BUCKETTEMPLATES: dev-merchant-platform-artifacts-218299108648
         ECRNAME: encrypt-file #El nombre debe ser igual al definido en el project template
-        FOO : date +%m%d%H%M%Y.%S
+        FOO : $(date --rfc-3339=date)
     steps:
       - name: Test
         run: |
