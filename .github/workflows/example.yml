@@ -20,8 +20,6 @@ jobs:
           timeZone: 8
           format: 'YYYY-MM-DD-HH-mm-ss'
       - name: Usage
-        env:
-          TIME: "${{ steps.time.outputs.time }}"
         run: |
-          echo $TIME
+          echo ${{ steps.time.outputs.time }}
          
