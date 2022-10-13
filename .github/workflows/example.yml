@@ -7,12 +7,21 @@ jobs:
   test-liquibase-action:
     runs-on: ubuntu-latest
     name: Test Liquibase Action
+    
     env:
         BUCKETTEMPLATES: dev-merchant-platform-artifacts-218299108648
         ECRNAME: encrypt-file #El nombre debe ser igual al definido en el project template
         FOO : $(date --rfc-3339=date)
     steps:
-      - name: Test
+      - name: Get the datetime string
+        id: time
+        uses: nanzm/get-time-action@v1.1
+        with:
+          timeZone: 8
+          format: 'YYYY-MM-DD-HH-mm-ss'
+      - name: Usage
+        env:
+          TIME: "${{ steps.time.outputs.time }}"
         run: |
-          echo ${FOO}
+          echo $TIME
          
