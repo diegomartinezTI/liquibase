@@ -13,14 +13,23 @@ jobs:
         ECR_ACCOUNT: 218299108648.dkr.ecr.us-east-1.amazonaws.com 
         ECRNAME: encrypt-file
     steps:
-      - name: Get the datetime string
-        id: time
-        uses: nanzm/get-time-action@v1.1
+      - uses: actions/checkout@v2
         with:
-          timeZone: 8
-          format: 'YYYYMMDDHHmmss'
-      - name: Usage
+          fetch-depth: 0
+      - name: Configure AWS Credentials
+        uses: aws-actions/configure-aws-credentials@v1
+        with:
+          aws-access-key-id: "AKIAQJZNGEWMR2XSRKWS"
+          aws-secret-access-key: "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"
+          aws-region: us-east-1
+      - name: Test
         run: |
-          echo $ECR_ACCOUNT/$ECRNAME:${{ steps.time.outputs.time }}
-          echo ${{ steps.time.outputs.time }}
+          echo ${FOO}
+          aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin 021032740249.dkr.ecr.us-east-1.amazonaws.com
+          cd ./example
+          docker build -t $ECRNAME .
+          aws ecr create-repository --repository-name $ECRNAME --image-scanning-configuration scanOnPush=true --image-tag-mutability MUTABLE || echo "it is possible that the ecr is already created"
+          docker tag  $ECRNAME:latest 021032740249.dkr.ecr.us-east-1.amazonaws.com/$ECRNAME:latest
+          docker push 021032740249.dkr.ecr.us-east-1.amazonaws.com/$ECRNAME:latest
+          cd ../../../
          
