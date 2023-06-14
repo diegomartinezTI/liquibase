@@ -9,8 +9,8 @@ jobs:
     name: Test Liquibase Action
     
     env:
-        BUCKETTEMPLATES: dev-merchant-platform-artifacts-218299108648
-        ECR_ACCOUNT: 218299108648.dkr.ecr.us-east-1.amazonaws.com 
+        BUCKETTEMPLATES: dev-merchant-platform-artifacts-021032740249
+        ECR_ACCOUNT: 021032740249.dkr.ecr.us-east-1.amazonaws.com 
         ECRNAME: encrypt-file
     steps:
       - uses: actions/checkout@v2
