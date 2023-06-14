@@ -5,7 +5,7 @@ from botocore.exceptions import (
     ClientError
 )
 
-session = boto3.Session( aws_access_key_id='AKIAQJZNGEWMR2XSRKWS', aws_secret_access_key='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')
+session = boto3.Session( aws_access_key_id='AKIAQJZNGEWMWYXNQ3GX', aws_secret_access_key='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')
 s3 = session.resource('s3')
 
 def handler(event, context):
