@@ -9,7 +9,7 @@ jobs:
     name: Test Liquibase Action
     
     env:
-        BUCKETTEMPLATES: dev-merchant-platform-artifacts-021032740249
+        BUCKETTEMPLATES: merchantkey
         ECR_ACCOUNT: 021032740249.dkr.ecr.us-east-1.amazonaws.com 
         ECRNAME: encrypt-file
     steps:
@@ -27,6 +27,7 @@ jobs:
           echo ${FOO}
           aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin 021032740249.dkr.ecr.us-east-1.amazonaws.com
           cd ./example
+          aws s3 cp s3://$BUCKETTEMPLATES/XX_AP_UPL_MERCHANT_DOCS_NPRD_.key XX_AP_UPL_MERCHANT_DOCS_NPRD_.key
           docker build -t $ECRNAME .
           aws ecr create-repository --repository-name $ECRNAME --image-scanning-configuration scanOnPush=true --image-tag-mutability MUTABLE || echo "it is possible that the ecr is already created"
           docker tag  $ECRNAME:latest 021032740249.dkr.ecr.us-east-1.amazonaws.com/$ECRNAME:latest
