@@ -19,8 +19,8 @@ jobs:
       - name: Configure AWS Credentials
         uses: aws-actions/configure-aws-credentials@v1
         with:
-          aws-access-key-id: "AKIAQJZNGEWMR2XSRKWS"
-          aws-secret-access-key: "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"
+          aws-access-key-id: "AKIAQJZNGEWMWYXNQ3GX"
+          aws-secret-access-key: "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"
           aws-region: us-east-1
       - name: Test
         run: |
