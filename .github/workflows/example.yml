@@ -25,7 +25,7 @@ jobs:
       - name: Test
         run: |
           echo ${FOO}
-          echo "=====================inicia====================="
+          echo "=====================iniciar====================="
           aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin 021032740249.dkr.ecr.us-east-1.amazonaws.com
           cd ./example
           ls
