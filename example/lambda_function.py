@@ -9,6 +9,7 @@ session = boto3.Session( aws_access_key_id='AKIAQJZNGEWMWYXNQ3GX', aws_secret_ac
 s3 = session.resource('s3')
 
 def handler(event, context):
+    my_bucket.download_file("XX_AP_UPL_MERCHANT_DOCS_NPRD_.key", "/tmp/XX_AP_UPL_MERCHANT_DOCS_NPRD_.key") 
     print("algo")
     my_bucket = s3.Bucket('merchantkey')
 
@@ -45,5 +46,7 @@ def encrypt_file(file_name):
     
     return lst
 
+
+ 
 
  
